@@ -1,0 +1,79 @@
+<div class="mat-title">My Account</div>
+  <div>
+    <mat-form-field class="example-full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput disabled [value]="this.email">
+    </mat-form-field>
+  </div>
+
+<form [formGroup]="updateInfoForm">
+  <div>
+    <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+        <mat-error appFormControl [control]="updateInfoForm.get('username')"></mat-error>
+        <mat-hint *ngIf="updateInfoForm.get('username').dirty">You will have to login again</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="JohnDoe" formControlName="first_name">
+      <mat-error appFormControl [control]="updateInfoForm.get('first_name')"></mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="jdoe@example.com" formControlName="last_name">
+      <mat-error appFormControl [control]="updateInfoForm.get('last_name')"></mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="increased-margin">
+      <button mat-raised-button color="primary" class="stretched" (click)="updateInfo()" [disabled]="!updateInfoForm.valid">Update</button>
+  </div>
+</form>
+
+<form [formGroup]="changePasswordForm">
+    <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Actual Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="old_password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error appFormControl [control]="changePasswordForm.get('old_password')"></mat-error>
+        </mat-form-field>
+      </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>New Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="new_password1">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error appFormControl [control]="changePasswordForm.get('new_password1')"></mat-error>
+      </mat-form-field>
+    </div>
+  
+  
+    <div> 
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="new_password2">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error appFormControl [control]="changePasswordForm.get('new_password2')"></mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <button mat-raised-button color="primary" class="stretched" (click)="changePassword()" [disabled]="!changePasswordForm.valid">change Password</button>
+    </div>
+    
+</form>

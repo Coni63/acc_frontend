@@ -1,0 +1,92 @@
+<form [formGroup]="options">
+  <div fxLayout="column" fxLayoutAlign=" stretch" >
+
+    <div class="race-time">
+      <p class="subtitle mat-subheading-1">Race duration :</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Hour(s)</mat-label>
+        <input matInput type="number" placeholder="Ex. 1" [formControl]="race_hoursControl" min="1" max="3" (input)="hideResult()">
+        <span matSuffix>h</span>
+        <mat-error *ngIf="race_hoursControl.invalid">0 <= h <= 24</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Minute(s)</mat-label>
+        <input matInput type="number" placeholder="Ex. 30" [formControl]="race_minutesControl" min="0" max="59" (input)="hideResult()">
+        <span matSuffix>min</span>
+        <mat-error *ngIf="race_minutesControl.invalid">0 <= min <= 59</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Second(s)</mat-label>
+        <input matInput type="number" placeholder="Ex. 30" [formControl]="race_secondsControl" min="0" max="999" (input)="hideResult()">
+        <span matSuffix>s</span>
+        <mat-error *ngIf="race_secondsControl.invalid">0 <= s <= 59</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="lap-time">
+      <p class="subtitle mat-subheading-1">Lap duration :</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Minute(s)</mat-label>
+        <input matInput type="number" placeholder="Ex. 1" [formControl]="lap_minutesControl" min="1" max="3" (input)="hideResult()">
+        <span matSuffix>min</span>
+        <mat-error *ngIf="lap_minutesControl.invalid">1 <= min <= 3</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Second(s)</mat-label>
+        <input matInput type="number" placeholder="Ex. 12" [formControl]="lap_secondsControl" min="0" max="59" (input)="hideResult()">
+        <span matSuffix>s</span>
+        <mat-error *ngIf="lap_secondsControl.invalid">0 <= s <= 59</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Millisecond(s)</mat-label>
+        <input matInput type="number" placeholder="Ex. 123" [formControl]="lap_millisecondsControl" min="0" max="999" (input)="hideResult()">
+        <span matSuffix>ms</span>
+        <mat-error *ngIf="lap_millisecondsControl.invalid">0 <= ms <= 999</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="track-selection stretch">
+      <mat-form-field appearance="fill">
+        <mat-label>Track</mat-label>
+        <mat-select [formControl]="trackControl" (selectionChange)="onTrackChange($event)">
+          <mat-option *ngFor="let track of tracks" [value]="track">{{ track.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="car-selection stretch">
+      <mat-form-field appearance="fill">
+        <mat-label>Car</mat-label>
+        <mat-select [formControl]="carControl" (selectionChange)="onCarChange($event)">
+          <mat-option *ngFor="let car of cars" [value]="car">{{ car.brand }} - {{ car.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div class="consumption stretch">
+      <mat-form-field appearance="fill">
+        <mat-label>Consumption</mat-label>
+        <input matInput type="number" placeholder="Ex. 30" [formControl]="car_consumptionControl" min="0" max="999" (input)="hideResult()">
+        <span matSuffix>L/lap</span>
+        <mat-error *ngIf="car_consumptionControl.invalid">0 <= L/lap <= 59</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="compute stretch">
+      <button mat-raised-button color="primary" [disabled]="options.invalid" (click)="getResults()">Primary</button>
+    </div>
+  </div>
+</form>
+
+<div class="result" *ngIf="show_result">
+  <p>
+    <span class="mat-title">{{ total_lap }}</span><span class="mat-subheading-2">&nbsp;Laps</span>
+  </p>
+  <p>
+    <span class="mat-title">{{ total_fuel }}</span><span class="mat-subheading-2">&nbsp;L</span>
+  </p>
+</div>

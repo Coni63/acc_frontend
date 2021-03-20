@@ -1,0 +1,38 @@
+<div class="mat-title">Log In</div>
+
+  <form [formGroup]="LoginForm">
+
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-error appFormControl [control]="LoginForm.get('username')"></mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error appFormControl [control]="LoginForm.get('password')"></mat-error>
+    </mat-form-field>
+    <p class="mat-error" *ngIf="errors">
+      {{ errors }}
+    </p>
+    <div>
+      <button mat-raised-button color="primary" class="stretched" (click)="login()" [disabled]="!LoginForm.valid">Login</button>
+    </div>
+    
+  </form>
+
+  <hr>
+
+  <p>
+    Forgot your password ? <a routerLink="/auth/forgot-password" >Click here</a> to reset it.
+  </p>
+  <hr>
+  <p>
+    No account yet ? <a routerLink="/auth/register" >Register here</a>.
+  </p>

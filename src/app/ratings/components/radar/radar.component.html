@@ -1,0 +1,9 @@
+<h3 style="text-align:center;">Total : {{ my_ratings.total }}</h3>
+<div style="display: block">
+  <canvas baseChart width="400" height="400" 
+  [datasets]="demoradarChartData" 
+  [labels]="demoradarChartLabels" 
+  [chartType]="radarChartType"
+  [options]="radarChartOptions">
+  </canvas>
+</div>

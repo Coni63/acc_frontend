@@ -1,0 +1,25 @@
+.lap-time {
+    mat-form-field{
+        margin-left: 4px;
+        margin-right: 4px;
+        width: 150px;
+    }
+}
+
+.race-time {
+    mat-form-field{
+        margin-left: 4px;
+        margin-right: 4px;
+        width: 150px;
+    }
+}
+
+.stretch {
+    mat-form-field, button {
+        width: 100%;
+    }
+}
+
+.subtitle {
+    text-align: center;
+}

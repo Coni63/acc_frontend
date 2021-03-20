@@ -1,0 +1,52 @@
+<div class="mat-title">Register</div>
+
+<form *ngIf="!confirm_email" [formGroup]="signUpForm">
+    
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="JohnDoe" formControlName="username">
+      <mat-error appFormControl [control]="signUpForm.get('username')"></mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="jdoe@example.com" formControlName="email">
+      <mat-error appFormControl [control]="signUpForm.get('email')"></mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password1">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error appFormControl [control]="signUpForm.get('password1')"></mat-error>
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password2">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error appFormControl [control]="signUpForm.get('password2')"></mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button mat-raised-button color="primary" class="stretched" (click)="register()" [disabled]="!signUpForm.valid">Register</button>
+  </div>
+  
+</form>
+
+<div *ngIf="confirm_email">
+  Your email has been confirmed !
+</div>

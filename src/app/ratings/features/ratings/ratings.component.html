@@ -1,0 +1,93 @@
+<div fxLayout="row" fxLayoutAlign=" stretch">
+
+  <div>
+
+    <form [formGroup]="ratingForm">
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Total</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="totalControl" min="0" max="9999">
+          <span matSuffix>pts</span>
+          <mat-error *ngIf="totalControl.invalid">0 <= Total <=9999</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Track Competence (TR)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="trackControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="trackControl.invalid">0 <= TR <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Consistency (CN)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="consistencyControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="consistencyControl.invalid">0 <= CN <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Car Control (CC)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="carControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="carControl.invalid">0 <= CC <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Pace (PC)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="paceControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="paceControl.invalid">0 <= PC <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Safety Factor (SA)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="safetyControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="safetyControl.invalid">0 <= SA <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Racecraft (RC)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="racecraftControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="racecraftControl.invalid">0 <= RC <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="race-time">
+        <mat-form-field appearance="fill">
+          <mat-label>Competition (CP)</mat-label>
+          <input matInput type="number" placeholder="Ex. 1" [formControl]="competitionControl" min="0" max="99">
+          <span matSuffix>%</span>
+          <mat-error *ngIf="competitionControl.invalid">0 <= CP <=99</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="stretch">
+        <button mat-raised-button color="primary" [disabled]="ratingForm.invalid" (click)="saveResults()">Save</button>
+      </div>
+
+    </form>
+
+  </div>
+  <!-- <div>
+    <app-radar *ngIf="my_ratings && avg_ratings" [my_ratings]="my_ratings[0]" [avg_ratings]="avg_ratings"></app-radar>
+  </div>
+
+
+
+  <app-distribution *ngIf="hist_ratings" [data]="hist_ratings"></app-distribution>
+  <app-history *ngIf="my_ratings" [data]="my_ratings"></app-history> -->

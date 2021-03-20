@@ -1,0 +1,9 @@
+mat-form-field {
+    width: 200px
+}
+
+.stretch {
+    mat-form-field, button {
+        width: 100%;
+    }
+}

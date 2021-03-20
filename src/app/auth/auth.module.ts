@@ -10,7 +10,7 @@ import { MyaccountComponent } from './features/myaccount/myaccount.component';
 import { ResetPasswordComponent } from './features/reset-password/reset-password.component';
 import { MaterialsModule } from '../materials/materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormControlDirective } from './directives/form-control.directive';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { FormControlDirective } from './directives/form-control.directive';
     RegisterComponent,
     MyaccountComponent,
     ResetPasswordComponent,
-    FormControlDirective,
   ],
   imports: [
     CommonModule,
@@ -26,6 +25,7 @@ import { FormControlDirective } from './directives/form-control.directive';
     MaterialsModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   exports: [
     LoginComponent,

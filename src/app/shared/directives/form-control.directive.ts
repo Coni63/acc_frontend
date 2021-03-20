@@ -1,6 +1,5 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
 
 @Directive({
   selector: '[appFormControl]'
@@ -42,6 +41,14 @@ export class FormControlDirective {
     else if (this.control.errors.hasOwnProperty('email'))
     {
       return 'Invalid email';
+    } 
+    else if (this.control.errors.hasOwnProperty('min')) 
+    {
+      return `${this.control.errors.min.min} minimum`;
+    } 
+    else if (this.control.errors.hasOwnProperty('max')) 
+    {
+      return `${this.control.errors.max.max} maximum`;
     } 
     else if (this.control.errors.hasOwnProperty('incorrect'))
     {

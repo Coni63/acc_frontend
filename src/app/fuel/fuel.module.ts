@@ -6,10 +6,14 @@ import { FuelRoutingModule } from './fuel-routing.module';
 import { FuelComponent } from './features/fuel/fuel.component';
 import { MaterialsModule } from '../materials/materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { ResultComponent } from './components/result/result.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
-    FuelComponent
+    FuelComponent,
+    ResultComponent,
   ],
   imports: [
     CommonModule,
@@ -17,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialsModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
+    FlexLayoutModule,
   ],
   exports: [
   ]

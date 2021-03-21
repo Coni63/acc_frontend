@@ -1,18 +1,17 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly stretch" class="container">
-    <div>
-        <span class="value">
-            {{ total_laps }}
-        </span>
-        <span class="unit">
-            Laps
-        </span>
-    </div>
-    <div>
-        <span class="value">
-            {{ total_fuel }}
-        </span>
-        <span class="unit">
-            L
-        </span>
-    </div>
-</div>
+<dl class="row">
+    <app-result-info title="Total Laps :" [value]="total_laps" unit="Laps" ></app-result-info>
+    <app-result-info title="Total Consumption (Unsafe) :" [value]="total_fuel" unit="L"></app-result-info>
+    <app-result-info title="Total Consumption (Safe) :" [value]="total_fuel_safe" unit="L"></app-result-info>
+    <app-result-info title="Total Distance :" [value]="total_km" unit="km" formating="1.0-1"></app-result-info>
+    <app-result-info title="Average Speed :" [value]="average_speed" unit="km/h" formating="1.0-1"></app-result-info>
+    <app-result-info title="Consumption per min :" [value]="fuel_per_min" unit="L/min"></app-result-info>
+    <app-result-info title="Consumption per km :" [value]="fuel_per_km" unit="L/km" formating="1.0-3"></app-result-info>
+</dl>
+
+<app-simulation-table 
+[total_fuel]="total_fuel_safe"
+[race_time]="race_time"
+[lap_time]="lap_time"
+[consumption]="consumption"
+[total_laps]="total_laps"
+></app-simulation-table>

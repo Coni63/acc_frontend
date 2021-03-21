@@ -24,8 +24,8 @@ export class FuelComponent implements OnInit {
     race_seconds     : new FormControl(0,  [ Validators.min(0), Validators.max(59),  Validators.required ]),
     car_consumption  : new FormControl(null,  [ Validators.required, Validators.min(0.01) ]),
   }, [
-    this.validLapDuration(),
-    this.validRaceDuration()
+    // this.validLapDuration(),
+    // this.validRaceDuration()
   ]);
   
   total_laps: number;
@@ -94,25 +94,21 @@ export class FuelComponent implements OnInit {
     }
   }
 
-  getResults(){
-    let race_time = this.config.controls['race_hours'].value * 3600
-                  + this.config.controls['race_minutes'].value * 60
-                  + this.config.controls['race_seconds'].value;
+  getRaceTime(): number {
+    return this.config.controls['race_hours'].value * 3600
+          + this.config.controls['race_minutes'].value * 60
+          + this.config.controls['race_seconds'].value;
+  }
 
-    let lap_time = this.config.controls['lap_minutes'].value * 60
-                 + this.config.controls['lap_seconds'].value
-                 + this.config.controls['lap_milliseconds'].value / 1000;
-
-    this.total_laps = Math.ceil(race_time / lap_time);
-    this.total_fuel = Math.ceil(this.config.controls['car_consumption'].value * this.total_laps);
+  getLapTime(): number {
+    return this.config.controls['lap_minutes'].value * 60
+          + this.config.controls['lap_seconds'].value
+          + this.config.controls['lap_milliseconds'].value / 1000;
   }
 
   private validRaceDuration() : ValidatorFn {
     return (group: FormGroup): ValidationErrors => {
-      let race_time = group.controls['race_hours'].value * 3600
-                    + group.controls['race_minutes'].value * 60
-                    + group.controls['race_seconds'].value;
-
+      let race_time = this.getRaceTime();
       if (race_time <= 0) {
         return {"incorrect": {
           message : ["Race duration cannot be negative or null"]
@@ -124,9 +120,7 @@ export class FuelComponent implements OnInit {
 
   private validLapDuration() : ValidatorFn{
     return (group: FormGroup): ValidationErrors => {
-      let lap_time = group.controls['lap_minutes'].value * 60
-                   + group.controls['lap_seconds'].value
-                   + group.controls['lap_milliseconds'].value / 1000;
+      let lap_time = this.getLapTime();
       if (lap_time <= 0) {
         return {"incorrect": {
           message : ["Lap duration cannot be negative or null"]

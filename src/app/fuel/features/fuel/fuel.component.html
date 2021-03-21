@@ -76,11 +76,16 @@
       </mat-form-field>
     </div>
 
-    <div class="compute stretch">
+    <!-- <div class="compute stretch">
       <button mat-raised-button color="primary" [disabled]="config.invalid" (click)="getResults()">Primary</button>
       <mat-error appFormControl [control]="config"></mat-error>
-    </div>
+    </div> -->
   </div>
 </form>
 
-<app-result class="result" [total_laps]="total_laps" [total_fuel]="total_fuel"></app-result>
+<app-result class="result" 
+[race_time]="getRaceTime()" 
+[lap_time]="getLapTime()" 
+[consumption]="config.get('car_consumption').value" 
+[track]="config.get('track').value"
+></app-result>

@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="lap">
+      <th mat-header-cell *matHeaderCellDef> Lap </th>
+      <td mat-cell *matCellDef="let element"> {{element.lap}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="time_elapsed">
+        <th mat-header-cell *matHeaderCellDef> Time Elapsed </th>
+        <td mat-cell *matCellDef="let element"> {{element.time_elapsed}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="time_remaining">
+      <th mat-header-cell *matHeaderCellDef> Time Remaining </th>
+      <td mat-cell *matCellDef="let element"> {{element.time_remaining}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="fuel_remaining">
+      <th mat-header-cell *matHeaderCellDef> Fuel Remaining </th>
+      <td mat-cell *matCellDef="let element"> {{element.fuel_remaining}} </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

@@ -9,11 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ResultComponent } from './components/result/result.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ResultInfoComponent } from './components/result-info/result-info.component';
+import { SimulationTableComponent } from './components/simulation-table/simulation-table.component';
 
 @NgModule({
   declarations: [
     FuelComponent,
     ResultComponent,
+    ResultInfoComponent,
+    SimulationTableComponent,
   ],
   imports: [
     CommonModule,

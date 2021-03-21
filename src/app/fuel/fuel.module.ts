@@ -11,6 +11,7 @@ import { ResultComponent } from './components/result/result.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ResultInfoComponent } from './components/result-info/result-info.component';
 import { SimulationTableComponent } from './components/simulation-table/simulation-table.component';
+import { FuelFormComponent } from './features/fuel-form/fuel-form.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SimulationTableComponent } from './components/simulation-table/simulati
     ResultComponent,
     ResultInfoComponent,
     SimulationTableComponent,
+    FuelFormComponent,
   ],
   imports: [
     CommonModule,

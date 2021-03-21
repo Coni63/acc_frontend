@@ -18,3 +18,10 @@ export interface Consumption {
   car: string;
   fuel: number;
 }
+
+export interface Result {
+  lap: number;
+  time_elapsed: string;
+  time_remaining: string;
+  fuel_remaining: string;
+}

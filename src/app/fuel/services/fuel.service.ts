@@ -32,4 +32,6 @@ export class FuelService {
       return this.http.get<Consumption[]>(environment.base_api_url + 'fuel/consumption?car=' + car_id + '&track=' + track_id);
   }
 
+  
+
 }

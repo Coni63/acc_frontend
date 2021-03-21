@@ -1,17 +1,13 @@
-<dl class="row">
-    <app-result-info title="Total Laps :" [value]="total_laps" unit="Laps" ></app-result-info>
-    <app-result-info title="Total Consumption (Unsafe) :" [value]="total_fuel" unit="L"></app-result-info>
-    <app-result-info title="Total Consumption (Safe) :" [value]="total_fuel_safe" unit="L"></app-result-info>
-    <app-result-info title="Total Distance :" [value]="total_km" unit="km" formating="1.0-1"></app-result-info>
-    <app-result-info title="Average Speed :" [value]="average_speed" unit="km/h" formating="1.0-1"></app-result-info>
-    <app-result-info title="Consumption per min :" [value]="fuel_per_min" unit="L/min"></app-result-info>
-    <app-result-info title="Consumption per km :" [value]="fuel_per_km" unit="L/km" formating="1.0-3"></app-result-info>
-</dl>
+<div class="container">
+    <dl>
+        <app-result-info title="Total Laps :" [value]="data.total_laps" unit="Laps" ></app-result-info>
+        <app-result-info title="Total Consumption :" [value]="data.total_fuel" unit="L"></app-result-info>
+        <app-result-info title="Required Fuel :" [value]="data.total_fuel_safe" unit="L"></app-result-info>
+        <app-result-info title="Total Distance :" [value]="data.total_km" unit="km" formating="1.0-1"></app-result-info>
+        <app-result-info title="Average Speed :" [value]="data.average_speed" unit="km/h" formating="1.0-1"></app-result-info>
+        <app-result-info title="Consumption per min :" [value]="data.fuel_per_min" unit="L/min"></app-result-info>
+        <app-result-info title="Consumption per km :" [value]="data.fuel_per_km" unit="L/km" formating="1.0-3"></app-result-info>
+    </dl>
+</div>
 
-<app-simulation-table 
-[total_fuel]="total_fuel_safe"
-[race_time]="race_time"
-[lap_time]="lap_time"
-[consumption]="consumption"
-[total_laps]="total_laps"
-></app-simulation-table>
+<b>Attention :</b> Required Fuel has a safety but if you have a formation lap, add few extra liters ;)

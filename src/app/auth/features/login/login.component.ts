@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   LoginForm = new FormGroup({
-    "username" : new FormControl("", [ Validators.required, Validators.minLength(5), Validators.maxLength(25) ]),
-    "password" : new FormControl("", [ Validators.required,  Validators.minLength(8)])
+    "username" : new FormControl("nmine", [ Validators.required, Validators.minLength(5), Validators.maxLength(25) ]),
+    "password" : new FormControl("azertyuiop111", [ Validators.required,  Validators.minLength(8)])
   });
   hide: boolean = true;
   errors: string = null;

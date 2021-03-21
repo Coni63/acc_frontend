@@ -1,25 +1,49 @@
-.lap-time {
-    mat-form-field{
-        margin-left: 4px;
-        margin-right: 4px;
-        width: 150px;
-    }
+.grid-layout {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto ;
+    grid-row-gap: 20px;
+
 }
 
-.race-time {
-    mat-form-field{
-        margin-left: 4px;
-        margin-right: 4px;
-        width: 150px;
-    }
+app-fuel-form {
+    grid-column: 1; 
+    grid-row: 1;
 }
 
-.stretch {
-    mat-form-field, button {
-        width: 100%;
-    }
+app-result {
+    grid-column: 1; 
+    grid-row: 2;
 }
 
-.subtitle {
-    text-align: center;
+app-simulation-table {
+    grid-column: 1; 
+    grid-row: 3;
+}
+
+@media all and (min-width: 992px) { 
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr ;
+        grid-column-gap: 20px;
+    }
+    
+    app-fuel-form {
+        grid-column: 1; 
+        grid-row: 1;
+    }
+    
+    app-result {
+        grid-column: 1; 
+        grid-row: 2;
+    }
+    
+    app-simulation-table {
+        grid-column: 2; 
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
 }

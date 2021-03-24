@@ -68,17 +68,22 @@
       </div>
     
       <div class="consumption stretch">
-        <mat-form-field appearance="fill">
-          <mat-label>Consumption</mat-label>
-          <input matInput type="number" placeholder="Ex. 30" formControlName="car_consumption">
-          <span matSuffix>L/lap</span>
-          <mat-error appFormControl [control]="config.get('car_consumption')"></mat-error>
-        </mat-form-field>
+        <div fxLayout="row">
+          <div fxFlex>
+            <mat-form-field appearance="fill">
+              <mat-label>Consumption</mat-label>
+              <input matInput type="number" placeholder="Ex. 30" formControlName="car_consumption">
+              <span matSuffix>L/lap</span>
+              <mat-error appFormControl [control]="config.get('car_consumption')"></mat-error>
+            </mat-form-field>
+          </div>
+          <div *ngIf="isLoggedIn || true"  class="button-container">
+            <button mat-fab color="primary" aria-label="save your consumption" [disabled]="!canSubmit()" (click)="saveMyConsumption()">
+              <mat-icon>file_upload</mat-icon>
+            </button>
+          </div>
+        </div>
       </div>
-  
-      <!-- <div class="compute stretch">
-        <button mat-raised-button color="primary" [disabled]="config.invalid" (click)="getResults()">Primary</button>
-        <mat-error appFormControl [control]="config"></mat-error>
-      </div> -->
+
     </div>
   </form>

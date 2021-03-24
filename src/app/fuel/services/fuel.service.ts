@@ -28,10 +28,12 @@ export class FuelService {
       return this.http.get<Car[]>(environment.base_api_url + 'fuel/car');
   }
 
-  getConsumption(car_id: number, track_id: number): Observable<Consumption[]> {
-      return this.http.get<Consumption[]>(environment.base_api_url + 'fuel/consumption?car=' + car_id + '&track=' + track_id);
+  getConsumption(car_id: number, track_id: number): Observable<Consumption> {
+      return this.http.get<Consumption>(environment.base_api_url + 'fuel/consumption?car=' + car_id + '&track=' + track_id);
   }
 
-  
+  saveConsumption(data): Observable<Consumption>{
+      return this.http.post<Consumption>(environment.base_api_url + 'fuel/consumption', data);
+  }
 
 }

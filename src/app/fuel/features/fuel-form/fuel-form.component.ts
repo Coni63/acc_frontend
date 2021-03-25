@@ -66,13 +66,25 @@ export class FuelFormComponent implements OnInit {
   onTrackChange(ob) {
     console.log('Track changed => ' +  ob.value);
     this._data.resetResults();
+    let car = this.config.controls["car"].value;
+    let lap_time = this.selectLapTime(car, ob.value);
     this.config.patchValue({
       track: ob.value,
-      lap_minutes: Math.floor(ob.value.lap_time / 60),
-      lap_seconds: Math.floor(ob.value.lap_time % 60),
-      lap_milliseconds: Math.floor(1000 * (ob.value.lap_time % 1)),
+      lap_minutes: Math.floor(lap_time / 60),
+      lap_seconds: Math.floor(lap_time % 60),
+      lap_milliseconds: Math.floor(1000 * (lap_time % 1)),
     });
     this.getFuel()
+  }
+
+  private selectLapTime(car: Car, track: Track){
+    if (!car){
+      return track.lap_time_gt3;
+    } else if(car.category == "GT3") {
+      return track.lap_time_gt3;
+    } else {
+      return track.lap_time_gt4;
+    }
   }
 
   onCarChange(ob) {

@@ -2,6 +2,7 @@ export interface Car {
   id: number;
   name: string;
   brand: string;
+  category: string;
 }
 
 export interface Track {
@@ -10,7 +11,8 @@ export interface Track {
   country: string;
   distance: number;
   turns: number;
-  lap_time: number;
+  lap_time_gt3: number;
+  lap_time_gt4: number;
 }
 
 export interface Consumption {

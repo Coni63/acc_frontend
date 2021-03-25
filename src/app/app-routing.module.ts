@@ -23,6 +23,14 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     loadChildren: () => import('./ratings/ratings.module').then((m) => m.RatingsModule)
   },
+  { 
+    path: "fov",
+    loadChildren: () => import('./fov/fov.module').then((m) => m.FovModule)
+  },
+  { 
+    path: "weather",
+    loadChildren: () => import('./weather/weather.module').then((m) => m.WeatherModule)
+  },
   { path: '**', redirectTo: '' }
 ];
 

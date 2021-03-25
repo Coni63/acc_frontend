@@ -1,1 +1,36 @@
-<p>fov-form works!</p>
+<form [formGroup]="config">
+    <div fxLayout="column" fxLayoutAlign=" stretch" >
+  
+        <div class="stretch">
+            <mat-form-field appearance="fill">
+              <mat-label>Screen Ratio</mat-label>
+              <mat-select formControlName="screen_ratio">
+                <mat-option *ngFor="let ratio of ratios" [value]="ratio">{{ ratio }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="stretch">
+            <mat-form-field appearance="fill">
+              <mat-label>Screen Size</mat-label>
+              <input matInput type="number" placeholder="Ex. 27" formControlName="screen_size" >
+              <span matSuffix>min</span>
+              <mat-error appFormControl [control]="config.get('screen_size')"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="stretch">
+            <mat-form-field appearance="fill">
+              <mat-label>Screen Distance</mat-label>
+              <input matInput type="number" placeholder="Ex. 70" formControlName="screen_dist" >
+              <span matSuffix>min</span>
+              <mat-error appFormControl [control]="config.get('screen_dist')"></mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="stretch">
+              <mat-slide-toggle formControlName="triple_screen">{{ updateScreenText() }}</mat-slide-toggle>
+          </div>
+
+    </div>
+  </form>

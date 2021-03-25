@@ -14,11 +14,13 @@ import { MaterialsModule } from './materials/materials.module';
 import { UserService } from './auth/services/user.service';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { AppInterceptorService } from './auth/services/app-interceptor.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

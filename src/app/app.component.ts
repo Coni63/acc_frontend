@@ -9,7 +9,6 @@ import { UserService } from './auth/services/user.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Assetto Corsa Competizione';
 
   constructor(public _userService: UserService, private router: Router) { }
 

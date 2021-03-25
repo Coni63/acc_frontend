@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  title = 'Assetto Corsa Competizione';
+
   constructor(public _userService: UserService, private router: Router) { }
   
   ngOnInit(): void { }
